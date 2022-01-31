@@ -1,0 +1,25 @@
+header.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  & nav {
+    display: flex;
+    gap: 30px;
+    font-size: rem(16px);
+  }
+
+  & .logo {
+    gap: 5px;
+    img {
+      height: 40px;
+      width: 40px;
+    }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  header.main-header {
+    padding-top: 40px;
+  }
+}
