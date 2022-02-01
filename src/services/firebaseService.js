@@ -38,6 +38,7 @@ async function getCollection(collectionName) {
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     data.id = doc.id;
+    // console.log(data);
     items.push(data);
   });
   return items;
@@ -46,5 +47,6 @@ async function getCollection(collectionName) {
 async function getItem(collectionName, id) {
   const snap = await getDoc(doc(firestore, collectionName, id));
   const item = snap.data();
+  item.id = id;
   return item;
 }

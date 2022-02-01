@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   // robots: null,
   cartItems: [],
+  totalPrice: 0,
   // filterBy: null
 };
 
@@ -18,6 +19,16 @@ export function cartReducer(state = INITIAL_STATE, action) {
         cartItems: state.cartItems.map((item) =>
           item.id === action.item.id ? action.item : item
         ),
+      };
+    case 'REMOVE_FROM_CART':
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((item) => item.id !== action.itemId),
+      };
+    case 'UPDATE_TOTAL_PRICE':
+      return {
+        ...state,
+        totalPrice: action.price,
       };
 
     // case 'REMOVE_ROBOT':

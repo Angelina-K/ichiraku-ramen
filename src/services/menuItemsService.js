@@ -53,19 +53,27 @@ async function getById(id) {
 // }
 function getEmptyRamen() {
   return {
-    broth: '',
-    noodles: '',
-    toppings: [],
+    name: 'Your ramen',
+    description: 'Create your ramen bowl',
     price: 10,
+    imgUrl:
+      'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1643702176/ramen-shop/kisspng-ramen-japanese-cuisine-soup-chinese-cuisine-bowl-vector-japanese-noodles-5a8c3f8f33d175.7286532915191407512123_lyltbe.png',
+    ingredients: {
+      broth: '',
+      noodles: '',
+      toppings: [],
+    },
   };
 }
 function getRamenIngredients() {
   return {
     broth: ['shoyu', 'salt', 'miso', 'tonkotsu'],
-    noodles: ['soba', 'somen', 'udon'],
+    noodles: ['soba noodles', 'somen noodles', 'udon noodles'],
     toppings: [
       'dried seaweed',
+      'sesame seeds',
       'mushrooms',
+      'pepper',
       'corn',
       'butter',
       'peanuts',

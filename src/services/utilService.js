@@ -7,25 +7,48 @@ export const utilService = {
   removeFromStorage,
   getIngredientList,
 };
-function _flattenDishIngredients(dish) {
-  let ingredientList = [];
-  dish.ingredients.forEach((field) => {
-    const values = Object.values(field);
-    if (Array.isArray(values)) {
-      ingredientList = ingredientList.concat(...values);
-      // ingredientList.push(flattenArray(values));
-    }
-  });
-  // console.log(ingredientList);
-  return ingredientList;
-}
+// function _flattenDishIngredients(dish) {
+//   let ingredientList = [];
+//   dish.ingredients.forEach((field) => {
+//     const values = Object.values(field);
+//     if (Array.isArray(values)) {
+//       ingredientList = ingredientList.concat(...values);
+//       // ingredientList.push(flattenArray(values));
+//     }
+//   });
+//   // console.log(ingredientList);
+//   return ingredientList;
+// }
 
 function getIngredientList(dish) {
-  const ingrArray = _flattenDishIngredients(dish);
-  const lastIngr = ingrArray.pop();
-  return `${ingrArray.join(', ')} and ${lastIngr}.`;
-  // const str= array.join(', ')
-  // const lastCommaIdx=str.lastIndexOf(',')
+  const ingredients = dish.ingredients;
+  let list = [];
+  if (!Array.isArray(ingredients)) {
+    for (const key in ingredients) {
+      // if (ingredients[key]) {
+      list = list.concat(ingredients[key]);
+      // }
+    }
+  } else {
+    console.log('ARRAY');
+  }
+  if (list[1]) {
+    const lastIngr = list.pop();
+    return `${list.join(', ')} and ${lastIngr}  `;
+  } else {
+    return list;
+  }
+  // return list;
+  // console.log('list', list);
+
+  // } else {
+  // }
+  // return `${ingrArray.join(', ')} and ${lastIngr}.`;
+  // return list;
+
+  // const ingrArray = _flattenDishIngredients(dish);
+  // const lastIngr = ingrArray.pop();
+  // return `${ingrArray.join(', ')} and ${lastIngr}.`;
 }
 // const dishes = dishesData.map((dish) => {
 //   let ingredientList = [];

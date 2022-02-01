@@ -16,23 +16,19 @@ export const MenuItemPreview = ({ item }) => {
     e.stopPropagation();
   };
   return (
-    <article className="dish-preview flex ">
-      <Link
-        to={item.type !== 'drink' ? `/dish/${id}` : '/menu'}
-        className="info flex">
+    <article className="dish-preview container ">
+      <Link to={item.type !== 'drink' ? `/dish/${id}` : '/menu'} className="">
         <div className="img-container">
           <img src={imgUrl} alt="" />
         </div>
         <div>
           <h3>{name}</h3>
           {/* <p>{description}</p> */}
-          <small>{ingredients}</small>
+          {/* <p>{ingredients}</p> */}
           <p>{price}</p>
         </div>
       </Link>
-      {/* <section className="actions"> */}
       <AddToCart onClick={handleClick} item={item} />
-      {/* </section> */}
     </article>
   );
 };
