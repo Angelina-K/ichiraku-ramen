@@ -27,7 +27,7 @@ export const MenuItemPreview = ({ item }) => {
           <h3>{name}</h3>
           {/* <p>{description}</p> */}
           <small>{ingredients}</small>
-          <p>{price}</p>
+          <span className="price">{price}</span>
         </div>
       </Link>
       {/* <section className="actions"> */}

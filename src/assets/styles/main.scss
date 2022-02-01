@@ -8,10 +8,14 @@
 @import 'basics/helpers';
 @import 'basics/base';
 @import 'basics/layout';
+@import 'basics/buttons';
 
 // Views
 @import 'views/home-page';
+@import 'views/dish-details';
+@import 'views/assemble-dish';
 
 // CMPS
 @import 'cmps/main-header';
 @import 'cmps/preview';
+@import 'cmps/add-to-cart';

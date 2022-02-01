@@ -13,21 +13,26 @@ export const DishDetails = (props) => {
 
   const loadDish = async () => {
     const dish = await getById(props.match.params.id);
-    console.log('dish', dish);
+    // console.log('dish', dish);
     setDish(dish);
     setIngredients(utilService.getIngredientList(dish));
   };
   if (!dish) return <div>Loading..</div>;
   return (
-    <div>
-      <h1>{dish.name}</h1>
-      <h3>{dish.description}</h3>
-      <p>{ingredients}</p>
-      <p>{dish.price}</p>
-      <img src={dish.imgUrl} alt="" />
+    <main className="details-page">
+      <section className="dish-details flex">
+        <div className="info flex column">
+          <h1>{dish.name}</h1>
+          {/* <p>{dish.description}</p> */}
+          <p>{ingredients}</p>
+          <span className="price">{dish.price}</span>
+        </div>
+        <img src={dish.imgUrl} alt="" />
+      </section>
+      <AddToCart item={dish} />
+
       <AssembleDish dish={dish} />
-      {/* <AddToCart item={dish} /> */}
       {/* <button>Add to cart</button> */}
-    </div>
+    </main>
   );
 };

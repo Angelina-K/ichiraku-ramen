@@ -1,0 +1,41 @@
+.dish-details {
+  .dish-preview {
+    .info {
+      h1 {
+        margin-bottom: 20px;
+        @include for-normal-layout {
+          font-size: rem(40px);
+        }
+      }
+      small {
+        display: block;
+        max-width: 100%;
+        font-size: 1rem;
+        @include for-wide-layout {
+          max-width: 80%;
+          font-size: rem(18px);
+        }
+        // align-self: center;
+        // text-align: center;
+      }
+      span {
+        font-size: rem(20px);
+        @include for-normal-layout {
+          font-size: rem(30px);
+          //   align-self: center;
+        }
+      }
+      .img-container {
+        width: 40%;
+        height: max-content;
+        @include for-normal-layout {
+          width: 30%;
+        }
+      }
+      div > * {
+        // background-color: chartreuse;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

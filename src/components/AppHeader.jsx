@@ -1,9 +1,14 @@
-import React, { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-// import { loadUser, logOut } from '../store/actions/userActions';
+import React, { useEffect, useState } from 'react';
 
+import { NavLink } from 'react-router-dom';
+// import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 export const AppHeader = () => {
+  const [isMenuShown, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    console.log('isMenuShown', isMenuShown);
+    setShowMenu(!isMenuShown);
+  };
   return (
     <header className="main-header">
       <NavLink exact to="/">
@@ -15,7 +20,11 @@ export const AppHeader = () => {
           <span>Ichiraku Ramen</span>
         </div>
       </NavLink>
-      <nav>
+      <button onClick={toggleMenu} className="menu-btn">
+        {isMenuShown ? 'x' : '≡'}
+      </button>
+      {/* <span className="menu-btn">≡</span> */}
+      <nav className={isMenuShown ? 'show' : ''}>
         <NavLink activeClassName="active" exact to="/">
           Home
         </NavLink>

@@ -1,0 +1,23 @@
+.small-btn {
+  border: 1px solid $clr3;
+  width: max-content;
+  padding: 5px 8px;
+  &:active {
+    // background-color: $clr3;
+
+    // padding: 3px 6px;
+  }
+}
+
+.action-btn {
+  background-color: $clr3;
+  color: #fff;
+  padding: 5px 8px;
+  &:active {
+    // padding: 3px 6px;
+  }
+  :disabled {
+    // background-color: gray;
+  }
+  //   width: calc(100% + 10px);
+}

@@ -16,7 +16,7 @@ export const MenuItemPreview = ({ item }) => {
     e.stopPropagation();
   };
   return (
-    <article className="dish-preview container ">
+    <article className="dish-preview ">
       <Link to={item.type !== 'drink' ? `/dish/${id}` : '/menu'} className="">
         <div className="img-container">
           <img src={imgUrl} alt="" />

@@ -1,0 +1,38 @@
+.add-to-cart {
+  gap: rem(10px);
+  height: rem(30px);
+  .quantity-selection {
+    justify-content: space-between;
+    align-items: center;
+    width: rem(80px);
+    .small-btn {
+      width: rem(30px);
+      height: 100%;
+    }
+
+    span {
+      width: rem(30px);
+      //   margin: 0 8px;
+      // font-size: rem(20px);
+      text-align: center;
+      //   background-color: turquoise;
+    }
+  }
+  .action-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // width: 150px;
+    padding: 0 15px;
+    p {
+      width: rem(100px);
+    }
+    span {
+      width: rem(50px);
+    }
+    &:active {
+      // box-shadow: $shadow;
+      // padding: 0px 14px;
+    }
+  }
+}

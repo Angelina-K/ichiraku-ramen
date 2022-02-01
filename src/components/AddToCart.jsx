@@ -53,24 +53,38 @@ export const AddToCart = ({ item }) => {
     dispatch(removeCartItem(item.id));
   };
   return (
-    <section>
-      <div>
-        <button onClick={() => increment(-1)} disabled={quantity <= 0}>
+    <section className="add-to-cart flex">
+      <div className="quantity-selection flex ">
+        <button
+          className="small-btn"
+          onClick={() => increment(-1)}
+          disabled={quantity <= 0}>
           -
         </button>
         <span>{quantity}</span>
-        <button onClick={() => increment(1)}>+</button>
+        <button className="small-btn" onClick={() => increment(1)}>
+          +
+        </button>
       </div>
       {isItemInCart ? (
-        <button onClick={updateOrder} disabled={item.quantity === quantity}>
-          Update order ${item.price * quantity}
+        <button
+          className="action-btn"
+          onClick={updateOrder}
+          disabled={item.quantity === quantity}>
+          <p>Update order</p>{' '}
+          <span className="price">{item.price * quantity}</span>
         </button>
       ) : (
-        <button onClick={addItemsToCart}>
-          Add to cart ${item.price * quantity}
+        <button className="action-btn" onClick={addItemsToCart}>
+          <p>Add to cart</p>{' '}
+          <span className="price">{item.price * quantity}</span>
         </button>
       )}
-      {isItemInCart && <button onClick={removeFromCart}>Remove</button>}
+      {isItemInCart && (
+        <button className="small-btn" onClick={removeFromCart}>
+          Remove
+        </button>
+      )}
     </section>
   );
 };

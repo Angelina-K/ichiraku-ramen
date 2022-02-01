@@ -16,12 +16,12 @@ export const AssembleDish = (props) => {
     (async () => {
       try {
         const dishId = props.dish ? props.dish.id : '';
-        console.log(props);
+        // console.log(props);
         // console.log(props.match);
         const dish = dishId ? props.dish : menuItemsService.getEmptyRamen();
         setDish(dish);
         // setIngredients(dish.ingredients);
-        console.log(dish);
+        // console.log(dish);
       } catch (err) {
         console.log(err);
       }
@@ -68,19 +68,21 @@ export const AssembleDish = (props) => {
     }));
   };
 
-  const save = () => {
-    // dish.ingredients = ingredients;
-    console.log('save', dish);
-  };
+  // const save = () => {
+  //   // dish.ingredients = ingredients;
+  //   console.log('save', dish);
+  // };
 
   if (!dish) return <div>Loading...</div>;
   return (
-    <section>
+    <section className="assemble-dish flex">
+      <label htmlFor="broth">
+        Broth<span>: {dish.ingredients.broth}</span>
+      </label>
       <section className="assemble-section">
         {ramenIngredients.broth.map((option, idx) => {
           return (
             <div key={option + idx}>
-              <span>{option}</span>
               <input
                 onChange={handleChange}
                 type="radio"
@@ -89,15 +91,19 @@ export const AssembleDish = (props) => {
                 // value={dish.ingredients.broth}
                 checked={dish.ingredients.broth === option}
               />
+              <span>{option}</span>
             </div>
           );
         })}
       </section>
+
+      <label htmlFor="noodles">
+        Noodles<span>: {dish.ingredients.noodles}</span>
+      </label>
       <section className="assemble-section">
         {ramenIngredients.noodles.map((option, idx) => {
           return (
             <div key={option + idx}>
-              <span>{option}</span>
               <input
                 onChange={handleChange}
                 type="radio"
@@ -106,22 +112,17 @@ export const AssembleDish = (props) => {
                 // value={dish.ingredients.noodles}
                 checked={dish.ingredients.noodles === option}
               />
+              <span>{option}</span>
             </div>
           );
         })}
       </section>
 
+      <label htmlFor="topping">Toppings</label>
       <section className="assemble-section">
         {ramenIngredients.toppings.map((option, idx) => {
           return (
             <div key={option + idx}>
-              <span>{option}</span>
-              <span>
-                {ramenIngredients.extraToppings.includes(option)
-                  ? ramenIngredients.extraPrice
-                  : ''}
-              </span>
-
               <input
                 onChange={handleCheckboxChange}
                 type="checkbox"
@@ -130,20 +131,28 @@ export const AssembleDish = (props) => {
                 value={option}
                 checked={dish.ingredients.toppings.includes(option)}
               />
+              <span>{option}</span>
+              {ramenIngredients.extraToppings.includes(option) && (
+                <span className="price">{ramenIngredients.extraPrice}</span>
+              )}
+              {/* <span className="price">
+                {ramenIngredients.extraToppings.includes(option)
+                  ? ramenIngredients.extraPrice
+                  : ''}
+              </span> */}
             </div>
           );
         })}
       </section>
-      <button onClick={save}>save</button>
+
       {/* </form> */}
-      <div>
+      <div className="dish-preview summery">
         <h2>Summery</h2>
-        {/* <MenuItemPreview item={dish} /> */}
         <h3>{dish.name}</h3>
-        <p>{dish.price}</p>
+        <span className="price">{dish.price}</span>
         <p>{utilService.getIngredientList(dish)}</p>
+        <AddToCart item={dish} />
       </div>
-      <AddToCart item={dish} />
     </section>
   );
 };

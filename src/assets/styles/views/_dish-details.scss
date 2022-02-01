@@ -1,0 +1,50 @@
+.details-page {
+  .dish-details {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    padding: 5vw;
+    // margin-bottom: 30px;
+    @include for-normal-layout {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .info {
+      gap: 10px;
+      text-align: center;
+      @include for-normal-layout {
+        text-align: start;
+        width: max-content;
+        h1 {
+          font-size: rem(40px);
+        }
+        p {
+          font-size: rem(20px);
+          max-width: 400px;
+        }
+        span {
+          align-self: center;
+          font-size: rem(26px);
+          font-weight: bolder;
+        }
+      }
+    }
+    img {
+      width: 40%;
+    }
+  }
+  .add-to-cart {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    margin: 50px auto;
+  }
+  .assemble-dish {
+    border-top: 1px solid $clr3;
+    padding-top: 30px;
+  }
+}

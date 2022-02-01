@@ -3,15 +3,50 @@ header.main-header {
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
-  margin-bottom: 15vh;
+  margin-bottom: 8vw;
+  // position: fixed;
+  // z-index: 2;
+  .menu-btn {
+    font-size: rem(20px);
+    // position: fixed;
+    z-index: 1;
+    margin: 20px;
+    top: 0;
+    right: 0;
+    @include for-normal-layout {
+      display: none;
+    }
+  }
   & nav {
-    display: flex;
-    gap: 30px;
+    display: none;
     font-size: rem(16px);
+    @include for-normal-layout {
+      display: flex;
+      a:not(:last-of-type) {
+        padding-inline-end: 20px;
+      }
+    }
+    &.show {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      box-shadow: $shadow;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 100%;
+      align-items: center;
+      padding: 60px 0px 40px 0px;
+      border-radius: $border-radius;
+      a {
+        padding: 20px 0px;
+      }
+    }
   }
 
   & .logo {
     gap: 5px;
+    // z-index: 3;
     img {
       height: 40px;
       width: 40px;

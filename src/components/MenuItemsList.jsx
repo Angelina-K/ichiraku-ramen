@@ -8,13 +8,17 @@ export function MenuItemsList({ items }) {
       {items.map((item) => (
         <MenuItemPreview item={item} key={item.id} />
       ))}
-      <section className="dish-preview list-item">
+      <section className="dish-preview flex">
         <Link to={'/assembleDish'}>
-          <div className="img-container">
-            <img src="https://res.cloudinary.com/dmxsqwvwv/image/upload/v1643702176/ramen-shop/kisspng-ramen-japanese-cuisine-soup-chinese-cuisine-bowl-vector-japanese-noodles-5a8c3f8f33d175.7286532915191407512123_lyltbe.png" />
+          <div className="info flex">
+            <div className="img-container">
+              <img src="https://res.cloudinary.com/dmxsqwvwv/image/upload/v1643702176/ramen-shop/kisspng-ramen-japanese-cuisine-soup-chinese-cuisine-bowl-vector-japanese-noodles-5a8c3f8f33d175.7286532915191407512123_lyltbe.png" />
+            </div>
+            <div>
+              <h3>Create your own ramen bowl</h3>
+              <span className="price">10</span>
+            </div>
           </div>
-          <h3>Create your own ramen bowl</h3>
-          <p>10</p>
         </Link>
       </section>
     </section>
