@@ -1,3 +1,5 @@
+import { orderService } from '../../services/orderService';
+
 export function addToCart(item) {
   return (dispatch) => {
     dispatch({ type: 'ADD_TO_CART', item });
@@ -20,5 +22,11 @@ export function updateTotalPrice(price) {
 export function removeCartItem(itemId) {
   return (dispatch) => {
     dispatch({ type: 'REMOVE_FROM_CART', itemId });
+  };
+}
+
+export function clearCart() {
+  return (dispatch) => {
+    dispatch({ type: 'CLEAR_CART' });
   };
 }

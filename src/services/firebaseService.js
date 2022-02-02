@@ -2,13 +2,14 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getFirestore } from 'firebase/firestore';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 import { collection, getDocs } from 'firebase/firestore';
 
 export const firebaseService = {
   getCollection,
   getItem,
+  addToCollection,
 };
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -42,6 +43,11 @@ async function getCollection(collectionName) {
     items.push(data);
   });
   return items;
+}
+
+async function addToCollection(collectionName, item) {
+  const docref = doc(collection(firestore, collectionName));
+  await setDoc(docref, item);
 }
 
 async function getItem(collectionName, id) {

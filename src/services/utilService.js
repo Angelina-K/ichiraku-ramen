@@ -6,19 +6,33 @@ export const utilService = {
   loadFromStorage,
   removeFromStorage,
   getIngredientList,
+  getFormFields,
 };
-// function _flattenDishIngredients(dish) {
-//   let ingredientList = [];
-//   dish.ingredients.forEach((field) => {
-//     const values = Object.values(field);
-//     if (Array.isArray(values)) {
-//       ingredientList = ingredientList.concat(...values);
-//       // ingredientList.push(flattenArray(values));
-//     }
-//   });
-//   // console.log(ingredientList);
-//   return ingredientList;
-// }
+
+function getFormFields(formType) {
+  let formFields;
+  if (formType === 'delivery') {
+    formFields = [
+      {
+        fieldName: 'Name',
+        type: 'text',
+        isRequired: true,
+      },
+      {
+        fieldName: 'Phone',
+        type: 'tel',
+        isRequired: true,
+      },
+      {
+        fieldName: 'Address',
+        type: 'text',
+        isRequired: true,
+      },
+    ];
+  }
+  // console.log(formFields);
+  return formFields;
+}
 
 function getIngredientList(dish) {
   const ingredients = dish.ingredients;
@@ -38,31 +52,7 @@ function getIngredientList(dish) {
   } else {
     return list;
   }
-  // return list;
-  // console.log('list', list);
-
-  // } else {
-  // }
-  // return `${ingrArray.join(', ')} and ${lastIngr}.`;
-  // return list;
-
-  // const ingrArray = _flattenDishIngredients(dish);
-  // const lastIngr = ingrArray.pop();
-  // return `${ingrArray.join(', ')} and ${lastIngr}.`;
 }
-// const dishes = dishesData.map((dish) => {
-//   let ingredientList = [];
-//   dish.ingredients.forEach((field) => {
-//     const values = Object.values(field);
-//     if (Array.isArray(values)) {
-//       ingredientList = ingredientList.concat(...values);
-//     }
-//   });
-//   return {
-//     dishInfo: dish,
-//     ingredientList,
-//   };
-// });
 
 function saveToStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value) || null);
@@ -98,16 +88,3 @@ function makeId(length = 5) {
   }
   return txt;
 }
-
-// function flattenArray(array) {
-//   const res = array.reduce((acc, item) => {
-//     if (Array.isArray(item)) {
-//       acc.push(...flattenArray(item));
-//     } else {
-//       acc.push(item);
-//     }
-//     return acc;
-//   }, []);
-//   // console.log(res);
-//   return res;
-// }

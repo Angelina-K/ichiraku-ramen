@@ -30,6 +30,12 @@ export function cartReducer(state = INITIAL_STATE, action) {
         ...state,
         totalPrice: action.price,
       };
+    case 'CLEAR_CART':
+      return {
+        state,
+        cartItems: [],
+        totalPrice: 0,
+      };
 
     // case 'REMOVE_ROBOT':
     //     return {
