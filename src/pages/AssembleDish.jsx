@@ -5,6 +5,8 @@ import { menuItemsService } from '../services/menuItemsService';
 import { AddToCart } from '../components/AddToCart';
 import { MenuItemPreview } from '../components/MenuItemPreview';
 import { utilService } from '../services/utilService';
+import { DishDetails } from '../components/DishDetails';
+// import { Router } from 'react-router-dom/cjs/react-router-dom.min';
 
 export const AssembleDish = (props) => {
   const [dish, setDish] = useState(null);
@@ -15,13 +17,10 @@ export const AssembleDish = (props) => {
   useEffect(() => {
     (async () => {
       try {
+        // console.log('props.match.params', props.match.url);
         const dishId = props.dish ? props.dish.id : '';
-        // console.log(props);
-        // console.log(props.match);
         const dish = dishId ? props.dish : menuItemsService.getEmptyRamen();
         setDish(dish);
-        // setIngredients(dish.ingredients);
-        // console.log(dish);
       } catch (err) {
         console.log(err);
       }
@@ -31,11 +30,6 @@ export const AssembleDish = (props) => {
   const handleChange = ({ target }) => {
     const field = target.name;
     const value = target.id;
-    // setIngredients((prevState) => ({ ...prevState, [field]: value }));
-    // setDish((prevState) => ({
-    //   ...prevState,
-    //   ingredients,
-    // }));
     setDish((prevState) => ({
       ...prevState,
       ingredients: { ...prevState.ingredients, [field]: value },
@@ -43,7 +37,6 @@ export const AssembleDish = (props) => {
   };
 
   const handleCheckboxChange = (event) => {
-    // const { toppings } = dish.ingredients;
     let price = dish.price;
     if (ramenIngredients.extraToppings.includes(event.target.id))
       price += ramenIngredients.extraPrice;
@@ -68,14 +61,13 @@ export const AssembleDish = (props) => {
     }));
   };
 
-  // const save = () => {
-  //   // dish.ingredients = ingredients;
-  //   console.log('save', dish);
-  // };
-
   if (!dish) return <div>Loading...</div>;
   return (
     <section className="assemble-dish flex">
+      {props.match && props.match.url === '/assembleDish' && (
+        <DishDetails dish={dish} ingredients={false} />
+      )}
+
       <label htmlFor="broth">
         Broth<span>: {dish.ingredients.broth}</span>
       </label>
@@ -88,7 +80,6 @@ export const AssembleDish = (props) => {
                 type="radio"
                 name="broth"
                 id={option}
-                // value={dish.ingredients.broth}
                 checked={dish.ingredients.broth === option}
               />
               <span>{option}</span>

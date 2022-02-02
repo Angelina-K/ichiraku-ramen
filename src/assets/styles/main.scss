@@ -12,10 +12,11 @@
 
 // Views
 @import 'views/home-page';
-@import 'views/dish-details';
+@import 'views/dish-details-page';
 @import 'views/assemble-dish';
 
 // CMPS
 @import 'cmps/main-header';
 @import 'cmps/preview';
 @import 'cmps/add-to-cart';
+@import 'cmps/dish-details';

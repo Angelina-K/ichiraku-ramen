@@ -1,7 +1,7 @@
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './assets/styles/main.scss';
 import { AppHeader } from './components/AppHeader';
-import { DishDetails } from './pages/DishDetails';
+import { DishDetailsPage } from './pages/DishDetailsPage';
 import { HomePage } from './pages/HomePage';
 import { Menu } from './pages/Menu';
 import { Checkout } from './pages/Checkout';
@@ -15,7 +15,7 @@ function App() {
         <main>
           <Switch>
             <Route component={AssembleDish} path="/assembleDish/" />
-            <Route exact component={DishDetails} path="/dish/:id" />
+            <Route exact component={DishDetailsPage} path="/dish/:id" />
             <Route component={Menu} path="/menu" />
             <Route component={Checkout} path="/checkout" />
             {/* <Route component={SignUp} path="/sign-up" /> */}
