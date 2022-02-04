@@ -8,7 +8,7 @@ import { MenuItemPreview } from '../components/MenuItemPreview';
 import { useDispatch } from 'react-redux';
 import { DeliveryModal } from '../components/DeliveryModal';
 import { clearCart } from '../store/actions/cartActions';
-
+import { MenuItemsList } from '../components/MenuItemsList';
 export const Checkout = () => {
   const dispatch = useDispatch();
   const { cartItems, totalPrice } = useSelector((state) => state.cartModule);
@@ -17,7 +17,7 @@ export const Checkout = () => {
   useEffect(() => {
     return () => {};
   }, []);
-  console.log('cartItems', cartItems);
+
   const placeOrder = (form) => {
     let order = orderService.getEmptyOrder();
     order.costumer = form;
@@ -33,37 +33,36 @@ export const Checkout = () => {
     setForm(!isFormShown);
   };
   const toggleModal = () => {
-    // console.log(isModalShown);
     setIsModalShown(!isModalShown);
-    // console.log(isModalShown);
   };
 
   if (!cartItems) return <div>Loading...</div>;
   return (
-    <main>
-      <h1>Order</h1>
-      {cartItems.map((item) => {
+    <main className="checkout-page flex column">
+      <h1>{!cartItems.length ? 'Your cart is empty' : 'Your order'}</h1>
+      <MenuItemsList items={cartItems} />
+      {/* {cartItems.map((item) => {
         return (
           <div key={item.id + 'checkout'}>
             <MenuItemPreview item={item} />
           </div>
         );
-      })}
+      })} */}
+
       <h2>
-        Total price: <span className="price">{totalPrice}</span>{' '}
+        Total: <span className="price">{totalPrice}</span>{' '}
       </h2>
       {!isFormShown && (
-        <button onClick={toggleForm} className="action-btn">
-          Checkout
+        <button
+          onClick={toggleForm}
+          disabled={!cartItems.length}
+          className="action-btn checkout-btn">
+          Checkout <span className="price">{totalPrice}</span>
         </button>
       )}
 
       {isFormShown && (
-        <Form
-          onSubmit={placeOrder}
-          formType={'delivery'}
-          submitTxt={'Place order'}
-        />
+        <Form onSubmit={placeOrder} formType={'delivery'} submitTxt={'Order'} />
       )}
       {isModalShown && <DeliveryModal closeModal={toggleModal} />}
     </main>

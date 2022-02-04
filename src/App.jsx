@@ -6,12 +6,14 @@ import { HomePage } from './pages/HomePage';
 import { Menu } from './pages/Menu';
 import { Checkout } from './pages/Checkout';
 import { AssembleDish } from './pages/AssembleDish';
+import CheckoutPreview from './components/CheckoutPreview';
 
 function App() {
   return (
     <Router>
       <div className={'App main-layout'}>
         <AppHeader />
+        {/* <CheckoutPreview /> */}
         <main>
           <Switch>
             <Route component={AssembleDish} path="/assembleDish/" />

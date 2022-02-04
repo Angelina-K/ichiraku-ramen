@@ -6,7 +6,7 @@ header.main-header {
   margin-bottom: 4vw;
   .menu-btn {
     font-size: rem(20px);
-    z-index: 1;
+    z-index: 6;
     margin: 20px;
     top: 0;
     right: 0;
@@ -14,12 +14,20 @@ header.main-header {
       display: none;
     }
   }
+  button {
+    padding: 0;
+  }
   & nav {
     display: none;
     font-size: rem(16px);
+    z-index: 5;
+    a {
+      padding-bottom: 20px;
+    }
     @include for-normal-layout {
       display: flex;
-      a:not(:last-of-type) {
+      a {
+        padding-bottom: 0;
         padding-inline-end: 20px;
       }
     }
@@ -35,7 +43,7 @@ header.main-header {
       align-items: center;
       padding: 60px 0px 40px 0px;
       border-radius: $border-radius;
-      a {
+      * > {
         padding: 20px 0px;
       }
     }

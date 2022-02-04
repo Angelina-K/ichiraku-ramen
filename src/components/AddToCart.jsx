@@ -26,7 +26,7 @@ export const AddToCart = ({ item }) => {
     setQuantity((prev) => prev + num);
   };
   const addItemsToCart = () => {
-    // console.log(totalPrice);
+    if (!quantity) return;
     if (!item.id) item.id = utilService.makeId();
     item.quantity = quantity;
     const price = totalPrice + item.quantity * item.price;
@@ -36,9 +36,8 @@ export const AddToCart = ({ item }) => {
   const updateOrder = () => {
     const newPrice = totalPrice + (quantity - item.quantity) * item.price;
     item.quantity = quantity;
-    console.log('update', item.quantity, quantity);
+    // console.log('update', item.quantity, quantity);
     if (!quantity) {
-      console.log('if');
       removeFromCart();
       return;
     }
@@ -47,10 +46,10 @@ export const AddToCart = ({ item }) => {
   };
 
   const removeFromCart = () => {
-    console.log('remove');
+    // console.log('remove');
     const newPrice = totalPrice - item.quantity * item.price;
-    dispatch(updateTotalPrice(newPrice));
     dispatch(removeCartItem(item.id));
+    dispatch(updateTotalPrice(newPrice));
   };
   return (
     <section className="add-to-cart flex">
@@ -67,24 +66,29 @@ export const AddToCart = ({ item }) => {
         </button>
       </div>
       {isItemInCart ? (
-        <button
-          className="action-btn"
-          onClick={updateOrder}
-          disabled={item.quantity === quantity}>
-          <p>Update order</p>{' '}
-          <span className="price">{item.price * quantity}</span>
-        </button>
+        <div className="in-cart-actions flex">
+          <button
+            className="action-btn"
+            onClick={updateOrder}
+            disabled={item.quantity === quantity}>
+            <p>Update order</p>{' '}
+            <span className="price">{item.price * quantity}</span>
+          </button>
+          <button className="small-btn" onClick={removeFromCart}>
+            Remove
+          </button>
+        </div>
       ) : (
         <button className="action-btn" onClick={addItemsToCart}>
           <p>Add to cart</p>{' '}
           <span className="price">{item.price * quantity}</span>
         </button>
       )}
-      {isItemInCart && (
+      {/* {isItemInCart && (
         <button className="small-btn" onClick={removeFromCart}>
           Remove
         </button>
-      )}
+      )} */}
     </section>
   );
 };

@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import CheckoutPreview from './CheckoutPreview';
 // import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-export const AppHeader = () => {
+export const AppHeader = (props) => {
   const [isMenuShown, setShowMenu] = useState(false);
+  const [isCartShown, setIsCartShown] = useState(false);
+  const { cartItems, totalPrice } = useSelector((state) => state.cartModule);
+  // useEffect(() => {
+  //   toggleMenu()
+  //   return () => {};
+  // }, [props.location]);
 
   const toggleMenu = () => {
-    console.log('isMenuShown', isMenuShown);
     setShowMenu(!isMenuShown);
+  };
+  const toggleCartPreview = () => {
+    setIsCartShown(!isCartShown);
   };
   return (
     <header className="main-header">
+      {isMenuShown && <div onClick={toggleMenu} className="dark-screen"></div>}
+
       <NavLink exact to="/">
         <div className="logo flex align-center">
           <img
@@ -35,6 +48,26 @@ export const AppHeader = () => {
         <NavLink activeClassName="active" to="/checkout">
           Checkout
         </NavLink>
+        <div className="dropdown">
+          <button className="cart-btn" onClick={toggleCartPreview}>
+            Cart
+          </button>
+
+          <div className={`dropdown-content  ${isCartShown ? 'show' : ''}`}>
+            <button onClick={toggleCartPreview}>X</button>
+            <CheckoutPreview />
+            {cartItems.length !== 0 && (
+              <div className="btn-container">
+                <Link
+                  onClick={toggleCartPreview}
+                  className="action-btn checkout-btn"
+                  to="/checkout">
+                  Checkout <span className="price">{totalPrice}</span>
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
 
         {/* <NavLink activeClassName="active" exact to="/about">
           About

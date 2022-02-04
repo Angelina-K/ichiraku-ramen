@@ -1,0 +1,37 @@
+.checkout-page {
+  margin-bottom: 50px;
+  h1,
+  h2 {
+    margin-bottom: 2vw;
+    font-size: rem(28px);
+    text-align: center;
+  }
+  h1 {
+    @include for-normal-layout {
+      text-align: start;
+    }
+  }
+  .checkout-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+    font-size: rem(20px);
+    padding: 8px 15px;
+    :active {
+      padding: 7px 14px;
+    }
+    @include for-normal-layout {
+      span {
+        display: none;
+      }
+      position: static;
+      align-self: center;
+      width: max-content;
+      border-radius: $border-radius;
+      // width: 100%;
+    }
+  }
+}

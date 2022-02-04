@@ -15,9 +15,13 @@
 @import 'views/dish-details-page';
 @import 'views/assemble-dish';
 @import 'views/menu-page';
+@import 'views/checkout-page';
 
 // CMPS
 @import 'cmps/main-header';
 @import 'cmps/preview';
 @import 'cmps/add-to-cart';
 @import 'cmps/dish-details';
+@import 'cmps/form';
+@import 'cmps/modal';
+@import 'cmps/checkout-preview';

@@ -29,7 +29,7 @@ export const Form = ({ formType, submitTxt, onSubmit }) => {
           key={field.fieldName}
         />
       ))}
-      <button className="action-btn">{submitTxt}</button>
+      <button className="action-btn checkout-btn submit">{submitTxt}</button>
     </form>
   );
 };

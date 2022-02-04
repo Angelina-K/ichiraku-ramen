@@ -8,7 +8,7 @@ export function MenuItemsList({ items, type }) {
       {items.map((item) => (
         <MenuItemPreview item={item} key={item.id} />
       ))}
-      {type === 'ramen' && (
+      {type && type === 'ramen' && (
         <section className="dish-preview flex">
           <Link to={'/assembleDish'}>
             <div className="info flex">

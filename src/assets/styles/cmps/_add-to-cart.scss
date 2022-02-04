@@ -1,6 +1,12 @@
 .add-to-cart {
+  flex-direction: column;
+  align-items: center;
+  // align-self: center;
   gap: rem(10px);
-  height: rem(30px);
+  @include for-wide-layout {
+    flex-direction: row;
+  }
+  // height: rem(30px);
   .quantity-selection {
     justify-content: space-between;
     align-items: center;
@@ -12,27 +18,26 @@
 
     span {
       width: rem(30px);
-      //   margin: 0 8px;
-      // font-size: rem(20px);
       text-align: center;
-      //   background-color: turquoise;
     }
+  }
+  .in-cart-actions {
+    gap: 5px;
   }
   .action-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // width: 150px;
-    padding: 0 15px;
+    width: 100%;
+    @include for-wide-layout {
+      width: max-content;
+    }
+    // padding: 0 15px;
     p {
       width: rem(100px);
     }
     span {
       width: rem(50px);
-    }
-    &:active {
-      // box-shadow: $shadow;
-      // padding: 0px 14px;
     }
   }
 }

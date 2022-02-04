@@ -1,0 +1,22 @@
+form {
+  align-self: center;
+  @include for-normal-layout {
+    max-width: 300px;
+  }
+  input {
+    border-radius: $border-radius;
+    padding: 8px 12px;
+    background-color: transparent;
+    border: 1px solid $clr3;
+    // border: none;
+    color: #2d2d2d;
+    font-size: rem(16px);
+    margin-bottom: 15px;
+    &::placeholder {
+      color: #2d2d2d;
+    }
+  }
+  .action-btn.submit {
+    width: 100%;
+  }
+}
