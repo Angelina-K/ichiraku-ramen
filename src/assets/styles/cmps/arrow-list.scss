@@ -1,0 +1,33 @@
+.arrow-list {
+  width: 100%;
+  margin-bottom: 50px;
+  overflow: hidden;
+  // align-items: center;
+  // justify-content: center;
+}
+.carousel-container {
+  // display: flex;
+  // align-items: center;
+  max-width: 90vw;
+  .react-multi-carousel-item {
+    max-width: 98vw;
+    height: 350px;
+    .dish-preview {
+      border: 1px solid black;
+      height: 100%;
+      width: 100%;
+      box-shadow: none;
+      @include for-narrow-layout {
+        width: 90%;
+      }
+      .info {
+        flex-direction: column;
+        text-align: center;
+      }
+      small {
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

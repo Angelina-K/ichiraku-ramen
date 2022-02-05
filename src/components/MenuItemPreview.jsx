@@ -30,9 +30,7 @@ export const MenuItemPreview = ({ item }) => {
           <span className="price">{price}</span>
         </div>
       </Link>
-      {/* <section className="actions"> */}
-      <AddToCart onClick={handleClick} item={item} />
-      {/* </section> */}
+      {/* <AddToCart onClick={handleClick} item={item} /> */}
     </article>
   );
 };

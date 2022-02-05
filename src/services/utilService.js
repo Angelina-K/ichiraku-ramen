@@ -7,6 +7,8 @@ export const utilService = {
   removeFromStorage,
   getIngredientList,
   getFormFields,
+  getMenuIcons,
+  getResponsiveConfiguration,
 };
 
 function getFormFields(formType) {
@@ -52,6 +54,49 @@ function getIngredientList(dish) {
   } else {
     return list;
   }
+}
+
+function getMenuIcons() {
+  return [
+    {
+      imgUrl:
+        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644000794/ramen-shop/sushi-icon_k45kkx.png',
+      description: 'Sushi Is Nice',
+      type: 'sushi',
+    },
+    {
+      imgUrl:
+        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644000760/ramen-shop/icon-ramen_vcg9kf.png',
+      description: 'Ramen Is Yummy',
+      type: 'ramen',
+    },
+    {
+      imgUrl:
+        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644000818/ramen-shop/other-icon_zaltne.png',
+      description: 'Dango Dango',
+      type: 'other',
+    },
+  ];
+}
+function getResponsiveConfiguration() {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+      slidesToSlide: 4, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+  };
+  return responsive;
 }
 
 function saveToStorage(key, value) {

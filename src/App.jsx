@@ -11,10 +11,10 @@ import CheckoutPreview from './components/CheckoutPreview';
 function App() {
   return (
     <Router>
-      <div className={'App main-layout'}>
+      <div className={'app  '}>
         <AppHeader />
         {/* <CheckoutPreview /> */}
-        <main>
+        <main className="">
           <Switch>
             <Route component={AssembleDish} path="/assembleDish/" />
             <Route exact component={DishDetailsPage} path="/dish/:id" />

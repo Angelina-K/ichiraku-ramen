@@ -28,7 +28,7 @@ export const MenuItemPreview = ({ item }) => {
           <p>{price}</p>
         </div>
       </Link>
-      <AddToCart onClick={handleClick} item={item} />
+      {/* <AddToCart onClick={handleClick} item={item} /> */}
     </article>
   );
 };
