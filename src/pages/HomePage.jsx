@@ -13,31 +13,30 @@ export const HomePage = () => {
   };
 
   return (
-    <main className="home-page main-layout">
-      <div className="hero flex full ">
+    <main className="home-page full ">
+      <div className="hero flex  ">
         <h1>HEADER</h1>
       </div>
 
       <section className="menu-suggestions flex column">
         <div className="menu-icons flex ">
           {utilService.getMenuIcons().map((item) => {
-            return;
-            // (
-            //   <div
-            //     onClick={() => setMenuItems(item.type)}
-            //     key={item.imgUrl}
-            //     className="menu-item pointer flex column">
-            //     <div className="round-img-container">
-            //       <img src={item.imgUrl} alt="" />
-            //     </div>
-            //     <p>{item.description}</p>
-            //   </div>
-            // );
+            return (
+              <div
+                onClick={() => setMenuItems(item.type)}
+                key={item.imgUrl}
+                className="menu-item pointer flex column">
+                <div className="round-btn">
+                  <img src={item.imgUrl} alt="" />
+                </div>
+                <p>{item.description}</p>
+              </div>
+            );
           })}
         </div>
         <ActionBtn action="/menu" btnTxt="Full menu" />
       </section>
-      <section className="menu-preview">
+      <section className="menu-preview main-layout">
         <ArrowsList type={menuItemsToShow} />
       </section>
     </main>

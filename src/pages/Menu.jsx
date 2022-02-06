@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { MenuItemsList } from '../components/MenuItemsList';
 import { loadMenuItems } from '../store/actions/menuItemsActions';
 import { HashLink as Link } from 'react-router-hash-link';
+import { utilService } from '../services/utilService';
 export const Menu = () => {
   const { items } = useSelector((state) => state.menuItemsModule);
   const dispatch = useDispatch();
@@ -20,12 +21,23 @@ export const Menu = () => {
   return (
     <main className="menu-page">
       <nav>
-        <Link to="/menu#ramen">Ramen</Link>
+        {utilService.getMenuIcons().map((item) => {
+          return (
+            <Link
+              key={item.imgUrl}
+              to={'/menu#' + item.type}
+              title={item.type}
+              className="round-btn">
+              <img src={item.imgUrl} alt="" />
+            </Link>
+          );
+        })}
+        {/* <Link to="/menu#ramen">Ramen</Link> */}
         {/* <Link>Sushi</Link>
         <Link>Desserts</Link> */}
-        <Link to="/menu#drinks">Drinks</Link>
+        {/* <Link to="/menu#drinks">Drinks</Link> */}
       </nav>
-      <h1 id="ramen">Ramen menu</h1>
+      <h1 id="ramen">Ramen</h1>
       <MenuItemsList
         type={'ramen'}
         items={items.filter((item) => item.type === 'ramen')}

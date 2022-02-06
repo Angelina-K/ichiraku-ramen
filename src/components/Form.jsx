@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { utilService } from '../services/utilService';
+import { ActionBtn } from './ActionBtn';
 
 export const Form = ({ formType, submitTxt, onSubmit }) => {
   const fieldsForForm = utilService.getFormFields(formType);
@@ -18,7 +19,7 @@ export const Form = ({ formType, submitTxt, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form flex column">
+    <form className="form flex column">
       {fieldsForForm.map((field) => (
         <input
           onChange={handleChange}
@@ -29,7 +30,8 @@ export const Form = ({ formType, submitTxt, onSubmit }) => {
           key={field.fieldName}
         />
       ))}
-      <button className="action-btn checkout-btn submit">{submitTxt}</button>
+      <ActionBtn action={handleSubmit} btnTxt={submitTxt} />
+      {/* <button className="action-btn checkout-btn submit">{submitTxt}</button> */}
     </form>
   );
 };

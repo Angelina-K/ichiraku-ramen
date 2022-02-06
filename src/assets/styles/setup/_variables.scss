@@ -1,10 +1,13 @@
 // COLOR PALETTE
-$clr1: hsl(218, 28%, 13%);
-$clr2: hsl(215, 61%, 61%);
-$clr3: hsl(215, 41%, 73%);
+$clr1: #1d1313;
+$clr2: #a79696;
+$clr3: #a52a2a;
+$clr4: #a7969644;
+$clr5: #f7ebeb;
+$clr6: #a796961a;
 // $clr4: #f0decb;
 // $clr5: #fff;
-$shadow: 0 0 11px #0000002b;
+$shadow: 0 0 8px $clr4;
 $border-radius: 0.25em;
 // LAYOUT
 $layoutPadding: 20px;

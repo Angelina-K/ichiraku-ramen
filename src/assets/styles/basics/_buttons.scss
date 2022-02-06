@@ -1,5 +1,5 @@
 .small-btn {
-  border: 1px solid $clr3;
+  border: 1px solid $clr4;
   width: max-content;
   padding: em(5px) em(8px);
   &:active {
@@ -38,7 +38,7 @@
     height: 50px;
     margin-top: -56px;
     margin-left: 6px;
-    background-color: brown;
+    background-color: #a52a2a;
     color: #fff;
     border-radius: $border-radius;
 
@@ -46,5 +46,30 @@
       margin-top: -50px;
       margin-left: 0px;
     }
+  }
+}
+
+.round-btn {
+  // width: 120px;
+  // height: 120px;
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
+  background-color: $clr5;
+  border: 2px dotted $clr3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffff;
+
+  @include for-normal-layout {
+    width: 120px;
+    height: 120px;
+  }
+  img {
+    object-fit: cover;
+    width: 70%;
+    height: 70%;
   }
 }

@@ -2,18 +2,15 @@
   width: 100%;
   margin-bottom: 50px;
   overflow: hidden;
-  // align-items: center;
-  // justify-content: center;
 }
+
 .carousel-container {
-  // display: flex;
-  // align-items: center;
   max-width: 90vw;
   .react-multi-carousel-item {
     max-width: 98vw;
-    height: 350px;
+    height: 400px;
     .dish-preview {
-      border: 1px solid black;
+      // border: 1px solid black;
       height: 100%;
       width: 100%;
       box-shadow: none;
@@ -25,8 +22,20 @@
         text-align: center;
       }
       small {
-        display: block;
+        display: none;
         margin-bottom: 10px;
+      }
+      .add-to-cart {
+        flex-direction: column;
+        align-self: center;
+        // justify-content: center;
+        .in-cart-actions {
+          flex-direction: column;
+          // flex-wrap: wrap;
+        }
+        .remove {
+          margin: 0 auto;
+        }
       }
     }
   }

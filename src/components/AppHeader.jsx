@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-
+import { useWindowDimensions } from '../hooks/useWindowDimensions';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import CheckoutPreview from './CheckoutPreview';
+// import { useHistory } from 'react-router-dom';
 // import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 export const AppHeader = (props) => {
+  // const history = useHistory();
   const [isMenuShown, setShowMenu] = useState(false);
   const [isCartShown, setIsCartShown] = useState(false);
   const { cartItems, totalPrice } = useSelector((state) => state.cartModule);
+  const { width } = useWindowDimensions();
   // useEffect(() => {
-  //   toggleMenu()
+  //   if (width < 640) {
+  //     console.log('if');
+  //     toggleMenu();
+  //   }
+  //   console.log(history.location.pathname);
+  //   // console.log(history.location.pathname);
+
+  //   // }
   //   return () => {};
-  // }, [props.location]);
+  // }, [history.location.pathname]);
 
   const toggleMenu = () => {
-    setShowMenu(!isMenuShown);
+    if (width < 640) {
+      setShowMenu(!isMenuShown);
+    }
   };
   const toggleCartPreview = () => {
     setIsCartShown(!isCartShown);
@@ -23,36 +35,41 @@ export const AppHeader = (props) => {
   return (
     <header className="main-layout">
       <section className="header-content ">
-        {isMenuShown && (
+        {isMenuShown && width < 640 && (
           <div onClick={toggleMenu} className="dark-screen"></div>
         )}
 
         <NavLink exact to="/">
           <div className="logo flex align-center">
-            {/* <img
-            src="https://res.cloudinary.com/dmxsqwvwv/image/upload/v1643292093/ramen-shop/pngegg_wfxvgb.png"
-            alt=""
-          /> */}
-            <span>Ichiraku Ramen</span>
+            <img
+              src="https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644146583/ramen-shop/logogogo_wp985e.png"
+              alt=""
+            />
+            {/* <span>Ichiraku Ramen</span> */}
           </div>
         </NavLink>
         <button onClick={toggleMenu} className="menu-btn">
           {isMenuShown ? 'x' : '≡'}
         </button>
         {/* <span className="menu-btn">≡</span> */}
-        <nav className={isMenuShown ? 'show' : ''}>
-          <NavLink activeClassName="active" exact to="/">
+        <nav className={isMenuShown && width < 640 ? 'show' : ''}>
+          {/* <NavLink onClick={toggleMenu} activeClassName="active" exact to="/">
+            Home
+          </NavLink> */}
+          <NavLink exact onClick={toggleMenu} activeClassName="active" to="/">
             Home
           </NavLink>
-
-          <NavLink activeClassName="active" to="/menu">
+          <NavLink onClick={toggleMenu} activeClassName="active" to="/menu">
             Menu
           </NavLink>
-          <NavLink activeClassName="active" to="/checkout">
+          <NavLink onClick={toggleMenu} activeClassName="active" to="/checkout">
             Checkout
           </NavLink>
           <div className="dropdown">
-            <button className="cart-btn" onClick={toggleCartPreview}>
+            <button
+              className="btn-cart"
+              className="cart-btn"
+              onClick={toggleCartPreview}>
               Cart
             </button>
 
@@ -62,6 +79,7 @@ export const AppHeader = (props) => {
               {cartItems.length !== 0 && (
                 <div className="btn-container">
                   <Link
+                    onClick={toggleMenu}
                     onClick={toggleCartPreview}
                     className="action-btn checkout-btn"
                     to="/checkout">

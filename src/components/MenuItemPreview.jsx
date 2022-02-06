@@ -30,7 +30,7 @@ export const MenuItemPreview = ({ item }) => {
           <span className="price">{price}</span>
         </div>
       </Link>
-      {/* <AddToCart onClick={handleClick} item={item} /> */}
+      <AddToCart onClick={handleClick} item={item} />
     </article>
   );
 };

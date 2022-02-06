@@ -74,7 +74,7 @@ export const AddToCart = ({ item }) => {
             <p>Update order</p>{' '}
             <span className="price">{item.price * quantity}</span>
           </button>
-          <button className="small-btn" onClick={removeFromCart}>
+          <button className="small-btn remove" onClick={removeFromCart}>
             Remove
           </button>
         </div>

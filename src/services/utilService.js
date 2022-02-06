@@ -60,19 +60,19 @@ function getMenuIcons() {
   return [
     {
       imgUrl:
-        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644000794/ramen-shop/sushi-icon_k45kkx.png',
+        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644092847/ramen-shop/sushi_owoo4q.png',
       description: 'Sushi Is Nice',
       type: 'sushi',
     },
     {
       imgUrl:
-        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644000760/ramen-shop/icon-ramen_vcg9kf.png',
+        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644092848/ramen-shop/ramen_fkwmjk.png',
       description: 'Ramen Is Yummy',
       type: 'ramen',
     },
     {
       imgUrl:
-        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644000818/ramen-shop/other-icon_zaltne.png',
+        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644092847/ramen-shop/other_iyyegn.png',
       description: 'Dango Dango',
       type: 'other',
     },

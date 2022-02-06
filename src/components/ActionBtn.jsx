@@ -10,7 +10,9 @@ export const ActionBtn = ({ action, btnTxt }) => {
           {btnTxt}
         </Link>
       ) : (
-        <button className="btn ">{btnTxt}</button>
+        <button onClick={action} className="btn ">
+          {btnTxt}
+        </button>
       )}
     </div>
   );

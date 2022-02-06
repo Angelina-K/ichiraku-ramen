@@ -3,8 +3,9 @@
 }
 
 html {
-  color: #2d2d2d;
-  // font-family: Opensans, sans-serif;
+  color: $clr5;
+  background-color: $clr1;
+  font-family: comfortaa, sans-serif;
   // color: #2d2d2d;
 }
 
@@ -20,11 +21,13 @@ h4,
 h5,
 h6 {
   margin: 0px;
+  color: $clr5;
 }
 
 h1 {
   font-size: 24px;
   line-height: 1.5em;
+  font-family: comfortaa-bold, sans-serif;
 }
 
 h2 {
@@ -36,6 +39,7 @@ button {
   border: none;
   background-color: transparent;
   border-radius: $border-radius;
+  color: $clr5;
 }
 
 img {
@@ -44,11 +48,13 @@ img {
 
 p {
   margin: 0px;
+  color: $clr5;
 }
 
 a {
   text-decoration: none;
   color: #2d2d2d;
+  color: $clr5;
 }
 
 @media screen and (min-width: 960px) {

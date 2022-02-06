@@ -7,9 +7,8 @@ export default function CheckoutPreview() {
   const { cartItems } = useSelector((state) => state.cartModule);
   return (
     <section className="checkout-preview  flex column">
-      {!cartItems.length ? (
-        <h3>Your cart is empty</h3>
-      ) : (
+      {cartItems.length === 0 && <h3>Your cart is empty</h3>}
+      {cartItems.length !== 0 && (
         <div className="checkout-list">
           {cartItems.map((item) => {
             return (

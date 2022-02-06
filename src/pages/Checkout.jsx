@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { DeliveryModal } from '../components/DeliveryModal';
 import { clearCart } from '../store/actions/cartActions';
 import { MenuItemsList } from '../components/MenuItemsList';
+import { ActionBtn } from '../components/ActionBtn';
 export const Checkout = () => {
   const dispatch = useDispatch();
   const { cartItems, totalPrice } = useSelector((state) => state.cartModule);
@@ -53,12 +54,13 @@ export const Checkout = () => {
         Total: <span className="price">{totalPrice}</span>{' '}
       </h2>
       {!isFormShown && (
-        <button
-          onClick={toggleForm}
-          disabled={!cartItems.length}
-          className="action-btn checkout-btn">
-          Checkout <span className="price">{totalPrice}</span>
-        </button>
+        <ActionBtn action={toggleForm} btnTxt={'Checkout'} />
+        // <button
+        //   onClick={toggleForm}
+        //   disabled={!cartItems.length}
+        //   className="action-btn checkout-btn">
+        //   Checkout <span className="price">{totalPrice}</span>
+        // </button>
       )}
 
       {isFormShown && (

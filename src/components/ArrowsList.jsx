@@ -13,10 +13,8 @@ import 'react-multi-carousel/lib/styles.css';
 
 export const ArrowsList = ({ type }) => {
   const responsive = utilService.getResponsiveConfiguration();
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const { items } = useSelector((state) => state.menuItemsModule);
-  // const [numOfItems, setNumOfItems] = useState(1);
-  // const [startIdx, setStartIdx] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(
     items.filter((item) => item.type === type)
   );
