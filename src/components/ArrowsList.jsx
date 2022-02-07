@@ -15,7 +15,7 @@ export const ArrowsList = ({ type }) => {
   const { width } = useWindowDimensions();
   const { items } = useSelector((state) => state.menuItemsModule);
   const [itemsToShow, setItemsToShow] = useState(
-    items.filter((item) => item.type === type)
+    items.filter((item) => item.type === 'ramen')
   );
   const [deviceType, setDeviceType] = useState('desktop');
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export const ArrowsList = ({ type }) => {
     const itemsByType = items.filter((item) => item.type === type);
     setItemsToShow(itemsByType);
     return () => {};
-  }, [type]);
+  }, [items, type]);
 
   useEffect(() => {
     let type;
