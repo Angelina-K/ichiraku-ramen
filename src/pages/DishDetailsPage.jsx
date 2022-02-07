@@ -24,8 +24,7 @@ export const DishDetailsPage = (props) => {
     <main className="details-page">
       <DishDetails dish={dish} ingredients={ingredients} />
       <AddToCart item={dish} />
-
-      <AssembleDish dish={dish} />
+      {dish.type === 'ramen' && <AssembleDish dish={dish} />}
     </main>
   );
 };

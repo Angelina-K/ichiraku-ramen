@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { ActionBtn } from '../components/ActionBtn';
 import { ArrowsList } from '../components/ArrowsList';
 import { utilService } from '../services/utilService';
-// import{MenuItemsList} from '../components/MenuItemsList'
-// import { useWindowDimensions } from '../hooks/useWindowDimensions';
+
 export const HomePage = () => {
   const [menuItemsToShow, setMenuItemsToShow] = useState('ramen');
 
@@ -14,8 +13,16 @@ export const HomePage = () => {
 
   return (
     <main className="home-page full ">
-      <div className="hero flex  ">
-        <h1>HEADER</h1>
+      <div className="hero  ">
+        <div className="introduction flex">
+          <h1>
+            It's not just <br />
+            food, it's an
+            <br />
+            experience.
+          </h1>
+          <ActionBtn action="/menu" btnTxt="Menu" />
+        </div>
       </div>
 
       <section className="menu-suggestions flex column">

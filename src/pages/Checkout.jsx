@@ -10,12 +10,15 @@ import { DeliveryModal } from '../components/DeliveryModal';
 import { clearCart } from '../store/actions/cartActions';
 import { MenuItemsList } from '../components/MenuItemsList';
 import { ActionBtn } from '../components/ActionBtn';
+
 export const Checkout = () => {
   const dispatch = useDispatch();
   const { cartItems, totalPrice } = useSelector((state) => state.cartModule);
   const [isFormShown, setForm] = useState(false);
   const [isModalShown, setIsModalShown] = useState(false);
+
   useEffect(() => {
+    window.scrollTo(0, 0);
     return () => {};
   }, []);
 
@@ -42,26 +45,11 @@ export const Checkout = () => {
     <main className="checkout-page flex column">
       <h1>{!cartItems.length ? 'Your cart is empty' : 'Your order'}</h1>
       <MenuItemsList items={cartItems} />
-      {/* {cartItems.map((item) => {
-        return (
-          <div key={item.id + 'checkout'}>
-            <MenuItemPreview item={item} />
-          </div>
-        );
-      })} */}
 
       <h2>
         Total: <span className="price">{totalPrice}</span>{' '}
       </h2>
-      {!isFormShown && (
-        <ActionBtn action={toggleForm} btnTxt={'Checkout'} />
-        // <button
-        //   onClick={toggleForm}
-        //   disabled={!cartItems.length}
-        //   className="action-btn checkout-btn">
-        //   Checkout <span className="price">{totalPrice}</span>
-        // </button>
-      )}
+      {!isFormShown && <ActionBtn action={toggleForm} btnTxt={'Checkout'} />}
 
       {isFormShown && (
         <Form onSubmit={placeOrder} formType={'delivery'} submitTxt={'Order'} />

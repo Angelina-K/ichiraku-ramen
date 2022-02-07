@@ -5,14 +5,13 @@ import { useWindowDimensions } from '../hooks/useWindowDimensions';
 import { MenuItemPreview } from './MenuItemPreview';
 import { loadMenuItems } from '../store/actions/menuItemsActions';
 import ToAssembleDish from './ToAssmebleDish';
-import { findRenderedDOMComponentWithClass } from 'react-dom/cjs/react-dom-test-utils.production.min';
-import { updateCartItem } from '../store/actions/cartActions';
 import { utilService } from '../services/utilService';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 export const ArrowsList = ({ type }) => {
   const responsive = utilService.getResponsiveConfiguration();
+
   const { width } = useWindowDimensions();
   const { items } = useSelector((state) => state.menuItemsModule);
   const [itemsToShow, setItemsToShow] = useState(
@@ -29,7 +28,7 @@ export const ArrowsList = ({ type }) => {
     const itemsByType = items.filter((item) => item.type === type);
     setItemsToShow(itemsByType);
     return () => {};
-  }, [items]);
+  }, [type]);
 
   useEffect(() => {
     let type;
@@ -39,6 +38,7 @@ export const ArrowsList = ({ type }) => {
     setDeviceType(type);
     return () => {};
   }, [width]);
+
   return (
     <div className="arrow-list ">
       <Carousel

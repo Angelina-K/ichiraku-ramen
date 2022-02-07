@@ -1,20 +1,48 @@
 .home-page {
   .hero {
-    background-image: url('https://res.cloudinary.com/dmxsqwvwv/image/upload/a_270/v1643990795/ramen-shop/Quick-Chicken-Ramen-7-of-7-2_vvseyp.jpg');
-    // background-image: url('https://res.cloudinary.com/dmxsqwvwv/image/upload/a_90/v1643993549/ramen-shop/noita-digital-zcx5ztIjQAM-unsplash_lpjhn6.jpg');
-    // background-image: url('https://res.cloudinary.com/dmxsqwvwv/image/upload/v1643998241/ramen-shop/Wagamama_MOA_a1osi7.jpg');
+    // background-image: url('https://res.cloudinary.com/dmxsqwvwv/image/upload/a_270/v1643990795/ramen-shop/Quick-Chicken-Ramen-7-of-7-2_vvseyp.jpg');
+    background-image: url('https://res.cloudinary.com/dmxsqwvwv/image/upload/a_90/v1643998241/ramen-shop/Wagamama_MOA_a1osi7.jpg');
     width: 100%;
     height: 100vh;
-    background-position: bottom center;
+    background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
 
     overflow: hidden;
 
-    padding: 10vw;
+    padding: 3vw;
     border-top: 1px solid $clr5;
+    gap: 2vw;
+    .introduction {
+      flex-direction: column;
+      width: max-content;
+      margin: 0 auto;
+      @include for-normal-layout {
+        margin: 0;
+      }
+      gap: 3vw;
+      .call-to-action-btn {
+        align-self: center;
+        .empty-div {
+          border: 1px solid $clr5;
+        }
+      }
+    }
+    @include for-normal-layout {
+      background-image: url('https://res.cloudinary.com/dmxsqwvwv/image/upload/a_vflip/a_270/v1643990805/ramen-shop/Quick-Chicken-Ramen-7-of-7-2_hvtswf.jpg');
+      background-position: left bottom;
+    }
     h1 {
-      color: #ffff;
+      // text-align: center;
+      margin: 0 auto;
+      // margin-top: 50px;
+      color: #fff;
+      font-size: rem(45px);
+      text-shadow: 2px 2px 6px $clr1;
+      @include for-normal-layout {
+        margin: 0;
+        font-size: rem(70px);
+      }
     }
   }
   .menu-suggestions {
@@ -34,6 +62,7 @@
         margin-top: -60px;
       }
       .menu-item {
+        text-align: center;
         p {
           color: $clr1;
         }

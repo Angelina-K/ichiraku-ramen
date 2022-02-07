@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from '../hooks/useForm';
-import { getById } from '../store/actions/menuItemsActions';
 import { menuItemsService } from '../services/menuItemsService';
 import { AddToCart } from '../components/AddToCart';
-import { MenuItemPreview } from '../components/MenuItemPreview';
 import { utilService } from '../services/utilService';
 import { DishDetails } from '../components/DishDetails';
-// import { Router } from 'react-router-dom/cjs/react-router-dom.min';
 
 export const AssembleDish = (props) => {
   const [dish, setDish] = useState(null);
-  //   const [ingredients, setIngredients] = useState(null);
 
   const ramenIngredients = menuItemsService.getRamenIngredients();
 
   useEffect(() => {
     (async () => {
       try {
-        // console.log('props.match.params', props.match.url);
+        window.scrollTo(0, 0);
         const dishId = props.dish ? props.dish.id : '';
         const dish = dishId ? props.dish : menuItemsService.getEmptyRamen();
         setDish(dish);
@@ -37,12 +32,9 @@ export const AssembleDish = (props) => {
   };
 
   const handleCheckboxChange = (event) => {
-    console.log(dish);
     let price = dish.price;
-    console.log(typeof price);
     if (ramenIngredients.extraToppings.includes(event.target.id))
       price += ramenIngredients.extraPrice;
-    console.log(typeof price);
     let newArray = [...dish.ingredients.toppings, event.target.id];
     if (dish.ingredients.toppings.includes(event.target.id)) {
       newArray = newArray.filter((topping) => {
@@ -56,14 +48,11 @@ export const AssembleDish = (props) => {
         return topping !== event.target.id;
       });
     }
-
-    // setIngredients((prevState) => ({ ...prevState, toppings: newArray }));
     setDish((prevState) => ({
       ...prevState,
       price,
       ingredients: { ...prevState.ingredients, toppings: newArray },
     }));
-    console.log('let price', typeof price);
   };
 
   if (!dish) return <div>Loading...</div>;
@@ -105,7 +94,6 @@ export const AssembleDish = (props) => {
                 type="radio"
                 name="noodles"
                 id={option}
-                // value={dish.ingredients.noodles}
                 checked={dish.ingredients.noodles === option}
               />
               <span>{option}</span>
@@ -131,23 +119,21 @@ export const AssembleDish = (props) => {
               {ramenIngredients.extraToppings.includes(option) && (
                 <span className="price">{ramenIngredients.extraPrice}</span>
               )}
-              {/* <span className="price">
-                {ramenIngredients.extraToppings.includes(option)
-                  ? ramenIngredients.extraPrice
-                  : ''}
-              </span> */}
             </div>
           );
         })}
       </section>
 
-      {/* </form> */}
       <div className="dish-preview summery">
         <h2>Summery</h2>
         <h3>{dish.name}</h3>
         <span className="price">{dish.price}</span>
         <p>{utilService.getIngredientList(dish)}</p>
-        <AddToCart item={dish} />
+        {!dish.ingredients.broth || !dish.ingredients.noodles ? (
+          <p>Please select broth and noodles</p>
+        ) : (
+          <AddToCart item={dish} />
+        )}
       </div>
     </section>
   );

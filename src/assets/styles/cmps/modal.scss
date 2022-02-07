@@ -3,18 +3,35 @@
   justify-content: center;
   align-items: center;
   //   width: 100%;
-
-  top: 40%;
+  // background-color: $clr1;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   box-shadow: $shadow;
   z-index: 5;
+  padding: 10vw;
   background-color: #fff;
-  border-radius: $border-radius;
+  text-align: center;
+  h2,
+  button,
+  p {
+    color: $clr1;
+  }
+  button {
+    border: 1px solid $clr3;
+    width: em(80px);
+    font-weight: bolder;
+  }
   @include for-normal-layout {
-    width: 50%;
+    border-radius: $border-radius;
+    top: 40%;
+    left: 50%;
+    width: 40%;
     height: 50%;
+  }
+  img {
+    width: 20%;
   }
 }

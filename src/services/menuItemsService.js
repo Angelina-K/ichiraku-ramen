@@ -58,7 +58,7 @@ function getEmptyRamen() {
       'Ramen broth is most labour intensive, from prep to finishing stock usually take around 36 hours total.  Noodles are always handmade.  Finally finish with your choice of unlimited toppings.',
     price: 10,
     imgUrl:
-      'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1643702176/ramen-shop/kisspng-ramen-japanese-cuisine-soup-chinese-cuisine-bowl-vector-japanese-noodles-5a8c3f8f33d175.7286532915191407512123_lyltbe.png',
+      'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644231188/ramen-shop/eating-flavor-noodle-nutrition-health-egg-noodles-0606f234fa8488920f1759ab8699743a_ymyi0s.png',
     ingredients: {
       broth: '',
       noodles: '',

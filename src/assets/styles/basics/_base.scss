@@ -5,13 +5,11 @@
 html {
   color: $clr5;
   background-color: $clr1;
-  font-family: comfortaa, sans-serif;
-  // color: #2d2d2d;
+  font-family: comfortaa-bold, sans-serif;
 }
 
 body {
   margin: 0;
-  // color: #2d2d2d;
 }
 
 h1,
@@ -40,6 +38,7 @@ button {
   background-color: transparent;
   border-radius: $border-radius;
   color: $clr5;
+  font-family: comfortaa-bold, sans-serif;
 }
 
 img {
@@ -57,20 +56,11 @@ a {
   color: $clr5;
 }
 
-@media screen and (min-width: 960px) {
-  h1 {
-    // font-size: 40px;
-    // line-height: 1.7em;
-  }
-}
-
 .price {
   font-size: 1.5em;
-  // font-weight: bolder;
   &::before {
     content: '$';
     font-size: 0.7em;
-    // margin-bottom: 100%;
   }
 }
 
@@ -85,8 +75,4 @@ a {
   cursor: pointer;
   z-index: 4;
   transition: opacity 0.6s;
-}
-
-.app main :not(.home-page) {
-  // margin-top: 70px;
 }

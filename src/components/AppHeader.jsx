@@ -45,7 +45,10 @@ export const AppHeader = (props) => {
               src="https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644146583/ramen-shop/logogogo_wp985e.png"
               alt=""
             />
-            {/* <span>Ichiraku Ramen</span> */}
+            {/* <img
+              src="https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644225861/ramen-shop/logoogogogoogog_bvufvd.jpg"
+              alt=""
+            /> */}
           </div>
         </NavLink>
         <button onClick={toggleMenu} className="menu-btn">

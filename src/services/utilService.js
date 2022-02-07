@@ -46,8 +46,9 @@ function getIngredientList(dish) {
       // }
     }
   } else {
-    console.log('ARRAY');
+    list.push(...ingredients);
   }
+
   if (list[1]) {
     const lastIngr = list.pop();
     return `${list.join(', ')} and ${lastIngr}  `;
@@ -61,20 +62,20 @@ function getMenuIcons() {
     {
       imgUrl:
         'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644092847/ramen-shop/sushi_owoo4q.png',
-      description: 'Sushi Is Nice',
+      description: 'Sushi ',
       type: 'sushi',
     },
     {
       imgUrl:
         'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644092848/ramen-shop/ramen_fkwmjk.png',
-      description: 'Ramen Is Yummy',
+      description: 'Ramen ',
       type: 'ramen',
     },
     {
       imgUrl:
-        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644092847/ramen-shop/other_iyyegn.png',
-      description: 'Dango Dango',
-      type: 'other',
+        'https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644236189/ramen-shop/drinks-icon_qfk6zj.jpg',
+      description: 'Drinks',
+      type: 'drink',
     },
   ];
 }
