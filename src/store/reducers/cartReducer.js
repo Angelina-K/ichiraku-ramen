@@ -1,8 +1,6 @@
 const INITIAL_STATE = {
-  // robots: null,
   cartItems: [],
   totalPrice: 0,
-  // filterBy: null
 };
 
 export function cartReducer(state = INITIAL_STATE, action) {
@@ -40,26 +38,7 @@ export function cartReducer(state = INITIAL_STATE, action) {
         totalPrice: 0,
       };
 
-    // case 'REMOVE_ROBOT':
-    //     return {
-    //         ...state,
-    //         robots: state.robots.filter(robot => robot._id !== action.robotId)
-    //     }
-
-    // case 'UPDATE_ROBOT':
-    //     return {
-    //         ...state,
-    //         robots: state.robots.map(robot => robot._id === action.robot._id ? action.robot : robot)
-    //     }
-    // case 'SET_FILTER_BY':
-    //     return {
-    //         ...state,
-    //         filterBy: {...action.filterBy}
-    //     }
-
     default:
       return state;
   }
 }
-
-// console.log(INITIAL_STATE.totalPrice);

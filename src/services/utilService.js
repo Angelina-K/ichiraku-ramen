@@ -1,6 +1,4 @@
 export const utilService = {
-  delay,
-  getRandomInt,
   makeId,
   saveToStorage,
   loadFromStorage,
@@ -32,7 +30,6 @@ function getFormFields(formType) {
       },
     ];
   }
-  // console.log(formFields);
   return formFields;
 }
 
@@ -41,9 +38,7 @@ function getIngredientList(dish) {
   let list = [];
   if (!Array.isArray(ingredients)) {
     for (const key in ingredients) {
-      // if (ingredients[key]) {
       list = list.concat(ingredients[key]);
-      // }
     }
   } else {
     list.push(...ingredients);
@@ -79,6 +74,7 @@ function getMenuIcons() {
     },
   ];
 }
+
 function getResponsiveConfiguration() {
   const responsive = {
     desktop: {
@@ -109,20 +105,8 @@ function loadFromStorage(key) {
   return data ? JSON.parse(data) : undefined;
 }
 
-function delay(ms = 1500) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
-
 function removeFromStorage(key) {
   localStorage.removeItem(key);
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
 function makeId(length = 5) {

@@ -12,7 +12,6 @@ export default function ToAssembleDish() {
           </div>
           <div>
             <h3>Create your own ramen bowl</h3>
-            {/* <p>{description}</p> */}
             <span className="price">{price}</span>
           </div>
         </div>

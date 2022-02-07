@@ -10,7 +10,6 @@
     max-width: 98vw;
     height: 400px;
     .dish-preview {
-      // border: 1px solid black;
       height: 100%;
       width: 100%;
       box-shadow: none;
@@ -33,10 +32,8 @@
       .add-to-cart {
         flex-direction: column;
         align-self: center;
-        // justify-content: center;
         .in-cart-actions {
           flex-direction: column;
-          // flex-wrap: wrap;
         }
         .remove {
           margin: 0 auto;

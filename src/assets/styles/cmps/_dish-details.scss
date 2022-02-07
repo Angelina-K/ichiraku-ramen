@@ -2,14 +2,10 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  // border-radius: $border-radius;
-  // box-shadow: $shadow;
   padding: 5vw;
-  // margin-bottom: 30px;
   @include for-normal-layout {
     flex-direction: row;
     justify-content: space-between;
-    // align-items: center;
   }
   .info {
     gap: 20px;
@@ -19,7 +15,6 @@
       text-align: justify;
     }
     @include for-normal-layout {
-      // text-align: start;
       gap: 40px;
       width: max-content;
       h1 {

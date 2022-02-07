@@ -1,28 +1,12 @@
-// .full-container {
-//   background-color: $clr1;
-//   position: fixed;
-//   width: 100%;
-//   border-bottom: 2px dotted $clr3;
-//   top: 0;
-//   // margin-bottom: 100px;
-//   @include for-normal-layout {
-//     position: static;
-//     border: none;
-//   }
-// }
 .header-content {
   display: flex;
-  // position: fixed;
   justify-content: space-between;
   align-items: center;
-  // padding-top: 20px;
   margin: 10px;
   height: 70px;
   @include for-normal-layout {
     height: 100px;
   }
-  // margin-bottom: 2vw;
-  // border-bottom: 1px solid $clr5;
   .menu-btn {
     position: fixed;
     font-size: rem(25px);
@@ -31,7 +15,6 @@
     height: 40px;
     margin: 20px;
     border-radius: 50%;
-    // top: 3%;
     right: 3%;
     background-color: $clr1;
     border: 2px dotted $clr3;
@@ -47,7 +30,6 @@
     font-size: rem(16px);
     z-index: 5;
     a {
-      // padding: 20px 0px;
       &.active {
         color: $clr3;
         font-weight: bolder;
@@ -57,9 +39,7 @@
     @include for-normal-layout {
       display: flex;
       a {
-        // padding: 10px 0px;
         margin: 0 20px;
-        // padding-inline-end: 20px;
       }
     }
     &.show {
@@ -90,16 +70,9 @@
     img {
       position: relative;
       height: 50px;
-      // width: 80px;
       @include for-normal-layout {
         height: 80px;
       }
     }
   }
 }
-
-// @media screen and (min-width: 1080px) {
-//   header.main-header {
-//     padding-top: 40px;
-//   }
-// }

@@ -25,7 +25,6 @@ export const MenuItemPreview = ({ item }) => {
         </div>
         <div>
           <h3>{name}</h3>
-          {/* <p>{description}</p> */}
           <small>{ingredients}</small>
           <span className="price">{price}</span>
         </div>

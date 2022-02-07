@@ -15,7 +15,6 @@ export const Form = ({ formType, submitTxt, onSubmit }) => {
     let { name, value } = e.target;
     name = name.toLowerCase();
     setFormValues({ ...formValues, [name]: value });
-    // console.log(formValues);
   };
 
   return (
@@ -31,7 +30,6 @@ export const Form = ({ formType, submitTxt, onSubmit }) => {
         />
       ))}
       <ActionBtn action={handleSubmit} btnTxt={submitTxt} />
-      {/* <button className="action-btn checkout-btn submit">{submitTxt}</button> */}
     </form>
   );
 };

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-// import { AddToCart } from '../components/AddToCart';
 import { Form } from '../components/Form';
 import { orderService } from '../services/orderService';
-import { MenuItemPreview } from '../components/MenuItemPreview';
 import { useDispatch } from 'react-redux';
 import { DeliveryModal } from '../components/DeliveryModal';
 import { clearCart } from '../store/actions/cartActions';

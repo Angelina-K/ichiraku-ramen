@@ -43,7 +43,6 @@ export const AssembleDish = (props) => {
           ramenIngredients.extraToppings.includes(event.target.id)
         ) {
           price -= ramenIngredients.extraPrice;
-          console.log(typeof price);
         }
         return topping !== event.target.id;
       });

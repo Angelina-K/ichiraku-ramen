@@ -1,7 +1,5 @@
 .add-to-cart {
-  // flex-direction: column;
   align-items: center;
-  // align-self: center;
   gap: rem(10px);
   button {
     height: 30px;
@@ -12,25 +10,18 @@
     justify-content: center;
     img {
       width: 70%;
-      // margin: auto 0;
     }
   }
   @include for-wide-layout {
     flex-direction: row;
   }
-  // height: rem(30px);
   .quantity-selection {
     justify-content: space-between;
     align-items: center;
-    // width: rem(80px);
     .small-btn {
       width: rem(30px);
       border: 1px solid $clr4;
-
-      // height: rem(30px);
-      // height: 100%;
     }
-
     span {
       width: rem(30px);
       text-align: center;
@@ -44,11 +35,9 @@
     justify-content: space-between;
     align-items: center;
     width: 150px;
-    // height: rem(30px);
     @include for-wide-layout {
       width: max-content;
     }
-    // padding: 0 15px;
     p {
       width: rem(100px);
     }

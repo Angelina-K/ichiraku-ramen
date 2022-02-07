@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { ActionBtn } from '../components/ActionBtn';
 import { ArrowsList } from '../components/ArrowsList';
 import { utilService } from '../services/utilService';

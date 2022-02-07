@@ -25,13 +25,6 @@ export default function CheckoutPreview() {
           })}
         </div>
       )}
-
-      {/* <Link className="action-btn checkout-btn" to="/checkout">
-        Checkout
-      </Link> */}
-      {/* <button className="action-btn checkout-btn">
-        Checkout <span className="price">{totalPrice}</span>
-      </button> */}
     </section>
   );
 }
