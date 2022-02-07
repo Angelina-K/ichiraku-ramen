@@ -57,15 +57,13 @@
   }
   .btn-container {
     display: flex;
-    align-items: flex-end;
     justify-content: center;
-    height: 50px;
+    height: 70px;
     border-top: 0.5px solid $clr5;
-    padding: 10px 0px;
+    // padding: 10px 0px;
 
     .checkout-btn {
       display: flex;
-      align-items: center;
       border-radius: $border-radius;
       width: 200px;
       padding: 8px 10px;
@@ -73,8 +71,9 @@
       max-height: 30px;
       gap: 5px;
       justify-content: space-between;
-      .price {
-      }
+      margin: 0;
+      border: none;
+      padding: 5px; // height: max-content;
     }
   }
 }
