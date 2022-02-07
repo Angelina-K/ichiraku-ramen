@@ -11,8 +11,8 @@
 .dish-preview {
   @include dish-preview;
 
-  padding: rem(25px);
   @include for-normal-layout {
+    padding: rem(25px);
     justify-content: space-between;
     small {
       display: block;

@@ -77,8 +77,13 @@
   min-height: 180px;
   border-radius: $border-radius;
   background-color: $clr6;
+
   .add-to-cart {
     align-self: center;
+    flex-direction: column;
+    @include for-normal-layout {
+      flex-direction: row;
+    }
   }
   h3 {
     margin-bottom: 8px;
