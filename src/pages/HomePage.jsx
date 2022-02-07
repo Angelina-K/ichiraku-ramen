@@ -20,7 +20,7 @@ export const HomePage = () => {
             <br />
             experience.
           </h1>
-          <ActionBtn action="/menu" btnTxt="Menu" />
+          {/* <ActionBtn action="/menu" btnTxt="Menu" /> */}
         </div>
       </div>
 
@@ -40,7 +40,7 @@ export const HomePage = () => {
             );
           })}
         </div>
-        <ActionBtn action="/menu" btnTxt="Full menu" />
+        <ActionBtn action="/menu" btnTxt="Menu" />
       </section>
       <section className="menu-preview main-layout">
         <ArrowsList type={menuItemsToShow} />

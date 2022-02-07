@@ -7,6 +7,7 @@ import { Menu } from './pages/Menu';
 import { Checkout } from './pages/Checkout';
 import { AssembleDish } from './pages/AssembleDish';
 import CheckoutPreview from './components/CheckoutPreview';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
             <Route component={HomePage} path="/" />
           </Switch>
         </main>
+
+        {/* <Link className="mobile-checkout-btn" to="/checkout">
+          Checkout
+        </Link> */}
       </div>
     </Router>
   );

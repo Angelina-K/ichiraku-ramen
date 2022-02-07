@@ -1,33 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useWindowDimensions } from '../hooks/useWindowDimensions';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import CheckoutPreview from './CheckoutPreview';
-// import { useHistory } from 'react-router-dom';
-// import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+
 export const AppHeader = (props) => {
-  // const history = useHistory();
   const [isMenuShown, setShowMenu] = useState(false);
   const [isCartShown, setIsCartShown] = useState(false);
   const { cartItems, totalPrice } = useSelector((state) => state.cartModule);
   const { width } = useWindowDimensions();
-  // useEffect(() => {
-  //   if (width < 640) {
-  //     console.log('if');
-  //     toggleMenu();
-  //   }
-  //   console.log(history.location.pathname);
-  //   // console.log(history.location.pathname);
-
-  //   // }
-  //   return () => {};
-  // }, [history.location.pathname]);
 
   const toggleMenu = () => {
     if (width < 640) {
       setShowMenu(!isMenuShown);
     }
+    if (isCartShown) toggleCartPreview();
   };
   const toggleCartPreview = () => {
     setIsCartShown(!isCartShown);
@@ -41,10 +29,7 @@ export const AppHeader = (props) => {
 
         <NavLink exact to="/">
           <div className="logo flex align-center">
-            <img
-              src="https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644146583/ramen-shop/logogogo_wp985e.png"
-              alt=""
-            />
+            <img src="https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644259413/ramen-shop/logo-nobg_q2bjiw.png" />
             {/* <img
               src="https://res.cloudinary.com/dmxsqwvwv/image/upload/v1644225861/ramen-shop/logoogogogoogog_bvufvd.jpg"
               alt=""
@@ -54,11 +39,7 @@ export const AppHeader = (props) => {
         <button onClick={toggleMenu} className="menu-btn">
           {isMenuShown ? 'x' : '≡'}
         </button>
-        {/* <span className="menu-btn">≡</span> */}
         <nav className={isMenuShown && width < 640 ? 'show' : ''}>
-          {/* <NavLink onClick={toggleMenu} activeClassName="active" exact to="/">
-            Home
-          </NavLink> */}
           <NavLink exact onClick={toggleMenu} activeClassName="active" to="/">
             Home
           </NavLink>

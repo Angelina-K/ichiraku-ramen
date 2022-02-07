@@ -1,6 +1,7 @@
 .checkout-preview {
   align-items: center;
   height: 100%;
+  // width: 100%;
   gap: 10px;
   .checkout-list {
     max-height: 200px;
@@ -13,12 +14,20 @@
     border-bottom: 0.5px solid $clr5;
 
     .img-container {
-      width: 60px;
+      display: none;
+      @include for-normal-layout {
+        display: block;
+        width: 60px;
+      }
     }
     h4 {
       margin-bottom: 7px;
     }
     .add-to-cart {
+      .action-btn {
+        width: 150px;
+        padding: 0 5px;
+      }
       button,
       span {
         font-size: rem(13px);
@@ -44,6 +53,7 @@
   z-index: 1;
   right: 0;
   margin-top: 15px;
+  width: 100%;
   h3 {
     margin: 10px 0;
   }
@@ -65,12 +75,13 @@
     .checkout-btn {
       display: flex;
       border-radius: $border-radius;
-      width: 200px;
+      width: 170px;
       padding: 8px 10px;
       align-self: center;
       max-height: 30px;
       gap: 5px;
       justify-content: space-between;
+      align-items: center;
       margin: 0;
       border: none;
       padding: 5px; // height: max-content;

@@ -35,14 +35,14 @@
     justify-content: space-between;
     align-items: center;
     // width: 150px;
+    width: 180px;
     @include for-wide-layout {
-      width: max-content;
     }
     p {
       width: rem(100px);
     }
     span {
-      width: rem(50px);
+      // width: rem(50px);
     }
   }
 }
