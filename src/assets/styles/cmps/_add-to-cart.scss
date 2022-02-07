@@ -6,6 +6,15 @@
   button {
     height: 30px;
   }
+  .remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 70%;
+      // margin: auto 0;
+    }
+  }
   @include for-wide-layout {
     flex-direction: row;
   }
@@ -17,6 +26,7 @@
     .small-btn {
       width: rem(30px);
       border: 1px solid $clr4;
+
       // height: rem(30px);
       // height: 100%;
     }

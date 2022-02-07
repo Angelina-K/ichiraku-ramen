@@ -1,27 +1,21 @@
-import { orderService } from '../../services/orderService';
-
 export function addToCart(item) {
-  return (dispatch) => {
-    dispatch({ type: 'ADD_TO_CART', item });
-    // dispatch({ type: 'UPDATE_TOTAL_PRICE', price: item.price * item.quantity });
+  return async (dispatch) => {
+    await dispatch({ type: 'ADD_TO_CART', item });
+    dispatch({ type: 'UPDATE_TOTAL_PRICE' });
   };
 }
 
 export function updateCartItem(item) {
-  return (dispatch) => {
-    dispatch({ type: 'UPDATE_CART_ITEM', item });
-  };
-}
-
-export function updateTotalPrice(price) {
-  return (dispatch) => {
-    dispatch({ type: 'UPDATE_TOTAL_PRICE', price });
+  return async (dispatch) => {
+    await dispatch({ type: 'UPDATE_CART_ITEM', item });
+    dispatch({ type: 'UPDATE_TOTAL_PRICE' });
   };
 }
 
 export function removeCartItem(itemId) {
-  return (dispatch) => {
-    dispatch({ type: 'REMOVE_FROM_CART', itemId });
+  return async (dispatch) => {
+    await dispatch({ type: 'REMOVE_FROM_CART', itemId });
+    dispatch({ type: 'UPDATE_TOTAL_PRICE' });
   };
 }
 

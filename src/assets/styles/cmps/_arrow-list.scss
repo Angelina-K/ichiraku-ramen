@@ -14,8 +14,13 @@
       height: 100%;
       width: 100%;
       box-shadow: none;
+      justify-content: flex-start;
       @include for-narrow-layout {
         width: 90%;
+      }
+      h3 {
+        height: 45px;
+        overflow: hidden;
       }
       .info {
         flex-direction: column;

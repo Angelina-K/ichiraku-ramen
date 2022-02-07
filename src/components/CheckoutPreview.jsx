@@ -10,9 +10,9 @@ export default function CheckoutPreview() {
       {cartItems.length === 0 && <h3>Your cart is empty</h3>}
       {cartItems.length !== 0 && (
         <div className="checkout-list">
-          {cartItems.map((item) => {
+          {cartItems.map((item, idx) => {
             return (
-              <div className="item flex" key={item.id}>
+              <div className="item flex" key={item.id + idx}>
                 <div className="img-container">
                   <img src={item.imgUrl} alt="" />
                 </div>

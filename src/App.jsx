@@ -12,9 +12,11 @@ function App() {
   return (
     <Router>
       <div className={'app '}>
-        <AppHeader />
+        <div className="full-container">
+          <AppHeader />
+        </div>
         {/* <CheckoutPreview /> */}
-        <main className="main-layout">
+        <main className=" main-layout">
           <Switch>
             <Route component={AssembleDish} path="/assembleDish/" />
             <Route exact component={DishDetailsPage} path="/dish/:id" />

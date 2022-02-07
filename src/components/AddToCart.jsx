@@ -4,17 +4,17 @@ import { useDispatch } from 'react-redux';
 import {
   addToCart,
   updateCartItem,
-  updateTotalPrice,
   removeCartItem,
 } from '../store/actions/cartActions';
-// import { useEffectUpdate } from '../hooks/useEffectUpdate';
 import { utilService } from '../services/utilService';
+import { useEffect } from 'react';
 
 export const AddToCart = ({ item }) => {
-  const [quantity, setQuantity] = useState(item.quantity || 1);
-  const dispatch = useDispatch();
-
   const { cartItems, totalPrice } = useSelector((state) => state.cartModule);
+  const [quantity, setQuantity] = useState(item.quantity || 1);
+  const [currItem, setCurrItem] = useState(item);
+
+  const dispatch = useDispatch();
 
   const isItemInCart = useSelector((state) =>
     state.cartModule.cartItems.find((cartItem) => {
@@ -22,35 +22,45 @@ export const AddToCart = ({ item }) => {
     })
   );
 
+  const itemIdxInCart = cartItems.indexOf(
+    (cartItem) => cartItem.id === item.id
+  );
+
+  useEffect(() => {
+    setCurrItem(itemIdxInCart !== -1 ? currItem[itemIdxInCart] : item);
+
+    return () => {};
+  }, []);
+
+  useEffect(() => {
+    setQuantity(currItem.quantity || 1);
+    return () => {};
+  }, [currItem.quantity]);
+
   const increment = (num) => {
     setQuantity((prev) => prev + num);
   };
+
   const addItemsToCart = () => {
     if (!quantity) return;
     if (!item.id) item.id = utilService.makeId();
     item.quantity = quantity;
-    const price = totalPrice + item.quantity * item.price;
     dispatch(addToCart(item));
-    dispatch(updateTotalPrice(price));
   };
+
   const updateOrder = () => {
-    const newPrice = totalPrice + (quantity - item.quantity) * item.price;
     item.quantity = quantity;
-    // console.log('update', item.quantity, quantity);
     if (!quantity) {
       removeFromCart();
       return;
     }
     dispatch(updateCartItem(item));
-    dispatch(updateTotalPrice(newPrice));
   };
 
   const removeFromCart = () => {
-    // console.log('remove');
-    const newPrice = totalPrice - item.quantity * item.price;
     dispatch(removeCartItem(item.id));
-    dispatch(updateTotalPrice(newPrice));
   };
+
   return (
     <section className="add-to-cart flex">
       <div className="quantity-selection flex ">
@@ -67,15 +77,12 @@ export const AddToCart = ({ item }) => {
       </div>
       {isItemInCart ? (
         <div className="in-cart-actions flex">
-          <button
-            className="action-btn"
-            onClick={updateOrder}
-            disabled={item.quantity === quantity}>
+          <button className="action-btn" onClick={updateOrder}>
             <p>Update order</p>{' '}
             <span className="price">{item.price * quantity}</span>
           </button>
           <button className="small-btn remove" onClick={removeFromCart}>
-            Remove
+            <img src={require('../assets/icons/remove.png')} alt="" />
           </button>
         </div>
       ) : (
@@ -84,11 +91,6 @@ export const AddToCart = ({ item }) => {
           <span className="price">{item.price * quantity}</span>
         </button>
       )}
-      {/* {isItemInCart && (
-        <button className="small-btn" onClick={removeFromCart}>
-          Remove
-        </button>
-      )} */}
     </section>
   );
 };

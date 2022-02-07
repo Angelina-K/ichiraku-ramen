@@ -28,7 +28,10 @@ export function cartReducer(state = INITIAL_STATE, action) {
     case 'UPDATE_TOTAL_PRICE':
       return {
         ...state,
-        totalPrice: action.price,
+        totalPrice: state.cartItems.reduce((acc, item) => {
+          console.log(acc, item.quantity);
+          return acc + item.price * item.quantity;
+        }, 0),
       };
     case 'CLEAR_CART':
       return {
@@ -58,3 +61,5 @@ export function cartReducer(state = INITIAL_STATE, action) {
       return state;
   }
 }
+
+// console.log(INITIAL_STATE.totalPrice);

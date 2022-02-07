@@ -37,9 +37,12 @@ export const AssembleDish = (props) => {
   };
 
   const handleCheckboxChange = (event) => {
+    console.log(dish);
     let price = dish.price;
+    console.log(typeof price);
     if (ramenIngredients.extraToppings.includes(event.target.id))
       price += ramenIngredients.extraPrice;
+    console.log(typeof price);
     let newArray = [...dish.ingredients.toppings, event.target.id];
     if (dish.ingredients.toppings.includes(event.target.id)) {
       newArray = newArray.filter((topping) => {
@@ -48,6 +51,7 @@ export const AssembleDish = (props) => {
           ramenIngredients.extraToppings.includes(event.target.id)
         ) {
           price -= ramenIngredients.extraPrice;
+          console.log(typeof price);
         }
         return topping !== event.target.id;
       });
@@ -59,6 +63,7 @@ export const AssembleDish = (props) => {
       price,
       ingredients: { ...prevState.ingredients, toppings: newArray },
     }));
+    console.log('let price', typeof price);
   };
 
   if (!dish) return <div>Loading...</div>;
