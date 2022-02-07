@@ -39,7 +39,6 @@ async function getCollection(collectionName) {
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     data.id = doc.id;
-    // console.log(data);
     items.push(data);
   });
   return items;
