@@ -20,11 +20,10 @@ export const Menu = () => {
   return (
     <section className="menu-page full">
       <nav>
-        {utilService.getMenuIcons().map((item) => {
+        {utilService.getMenuIcons().map((item, idx) => {
           return (
-            <div>
+            <div key={item.imgUrl + idx}>
               <Link
-                key={item.imgUrl}
                 to={'/menu#' + item.type}
                 title={item.type}
                 className="round-btn">
