@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ichiraku-ramen/static/css/main.d9678bbd.css",
-    "main.js": "/ichiraku-ramen/static/js/main.a05d0a47.js",
+    "main.js": "/ichiraku-ramen/static/js/main.7bd96a3a.js",
     "static/js/787.c263e85e.chunk.js": "/ichiraku-ramen/static/js/787.c263e85e.chunk.js",
     "static/media/Comfortaa-Regular.ttf": "/ichiraku-ramen/static/media/Comfortaa-Regular.d8756404994c153f8fce.ttf",
     "static/media/Comfortaa-Light.ttf": "/ichiraku-ramen/static/media/Comfortaa-Light.8d7e182e392e617a868f.ttf",
@@ -11,11 +11,11 @@
     "static/media/revicons.woff": "/ichiraku-ramen/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/ichiraku-ramen/index.html",
     "main.d9678bbd.css.map": "/ichiraku-ramen/static/css/main.d9678bbd.css.map",
-    "main.a05d0a47.js.map": "/ichiraku-ramen/static/js/main.a05d0a47.js.map",
+    "main.7bd96a3a.js.map": "/ichiraku-ramen/static/js/main.7bd96a3a.js.map",
     "787.c263e85e.chunk.js.map": "/ichiraku-ramen/static/js/787.c263e85e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d9678bbd.css",
-    "static/js/main.a05d0a47.js"
+    "static/js/main.7bd96a3a.js"
   ]
 }
