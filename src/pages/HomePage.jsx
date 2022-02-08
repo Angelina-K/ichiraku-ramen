@@ -42,6 +42,7 @@ export const HomePage = () => {
         </div>
         <ActionBtn action="/menu" btnTxt="Menu" />
       </section>
+
       <section className="menu-preview main-layout">
         <ArrowsList type={menuItemsToShow} />
       </section>
